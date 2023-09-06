@@ -98,6 +98,30 @@ La consulta SQL al final del script tiene el propósito de obtener una lista de 
 
 El siguiente script SQL crea un nuevo esquema y varias tablas en PostgreSQL para gestionar una flota de coches. Además, incluye una consulta para obtener una lista de coches activos. A continuación, se detalla cada sección del script.
 
+## Archivos CSV de Ejemplo para Pruebas de Script SQL
+
+Los siguientes archivos CSV han sido generados para facilitar la prueba del script SQL. Cada archivo corresponde a una tabla en la base de datos y contiene datos de muestra que puedes importar.
+
+### Tablas y Archivos Correspondientes
+
+1. **Tabla Coche**: Contiene información sobre los vehículos, como el modelo, matrícula, kilómetros, etc.  
+   - [Descargar archivo CSV para la tabla Coche](Coche_Example.csv)
+
+2. **Tabla Marca**: Contiene información sobre las marcas de los vehículos y a qué grupo pertenecen.  
+   - [Descargar archivo CSV para la tabla Marca](Marca_Example.csv)
+
+3. **Tabla Grupo**: Contiene información sobre los grupos empresariales a los que pertenecen las marcas.  
+   - [Descargar archivo CSV para la tabla Grupo](Grupo_Example.csv)
+
+4. **Tabla Aseguradora**: Contiene información sobre las compañías aseguradoras.  
+   - [Descargar archivo CSV para la tabla Aseguradora](Aseguradora_Example.csv)
+
+5. **Tabla Revisión**: Contiene información sobre las revisiones realizadas a los vehículos.  
+   - [Descargar archivo CSV para la tabla Revisión](Revision_Example.csv)
+
+Estos archivos te servirán como datos de muestra para probar tu script SQL.
+
+
 ## Creación del Esquema
 
 ```sql
