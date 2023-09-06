@@ -80,7 +80,7 @@ Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script 
 
 ---
 
-![Diagrama ER](diagrama-er-url)
+![Diagrama ER](Modelado_keepcoding-Fleet.png)
 
 ## Script SQL Adaptado
 
