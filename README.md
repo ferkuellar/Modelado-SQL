@@ -86,5 +86,5 @@ El segundo componente es un script SQL que es 100% autónomo. Este script debe:
 
 - Crear todas las tablas necesarias según el modelo ER.
 - Definir las claves primarias y claves foráneas para establecer las relaciones entre las tablas.
-- [Aquí el enlace al script SQL](script-sql-url)
+- [Aquí el enlace al script SQL](keepcoding_flota.sql)
 
