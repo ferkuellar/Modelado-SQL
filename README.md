@@ -2,7 +2,7 @@
 
 Este proyecto se centra en la gestión eficiente de la flota de vehículos de una empresa. Mediante la implementación de un sistema de base de datos en PostgreSQL, se busca tener un control completo sobre diversos aspectos de la flota, como modelos de vehículos, marcas, grupos empresariales y más. Además, se abarcan detalles como el color del coche, matrícula, kilómetros recorridos y datos de la aseguradora. Un aspecto clave es el seguimiento de las revisiones de cada vehículo, incluyendo la fecha, kilómetros al momento y costos. El proyecto incluye un script SQL autónomo para crear y poblar la base de datos, así como archivos CSV de ejemplo para pruebas.
 
-# Tarea de Gestión de Flota de Vehículos en KeepCoding
+# Gestión de Flota de Vehículos en KeepCoding
 
 La tarea tiene varios componentes clave que se deben abordar para una solución completa. Estos componentes son:
 
@@ -33,6 +33,7 @@ El tercer componente es una consulta SQL que pueda listar todos los coches activ
 - Kilometraje total del coche
 - Nombre de la empresa aseguradora
 - Número de póliza de seguro
+
 # Adaptación del Modelo Entidad-Relación y SQL para la Tarea en KeepCoding
 
 Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script SQL que se ajusten a los requisitos específicos de la tarea. A continuación, se describen los componentes clave.
@@ -125,7 +126,6 @@ Los siguientes archivos CSV han sido generados para facilitar la prueba del scri
 
 Estos archivos te servirán como datos de muestra para probar tu script SQL.
 
-
 ## Creación del Esquema
 
 ```sql
@@ -149,7 +149,6 @@ CREATE TABLE Grupo (
     Nombre_Grupo VARCHAR(50) NOT NULL
 );
 ```
-
 Esta tabla guarda la información sobre los diferentes grupos empresariales a los que pertenecen las marcas de coches.
 
 ### Tabla Marca
