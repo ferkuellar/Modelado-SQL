@@ -33,8 +33,6 @@ El tercer componente es una consulta SQL que pueda listar todos los coches activ
 
 Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script SQL que se ajusten a los requisitos específicos de la tarea. A continuación, se describen los componentes clave.
 
----
-
 ## Modelo Entidad-Relación Descriptivo para la Tarea
 
 ### Entidades y Atributos
@@ -77,8 +75,6 @@ Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script 
 2. **Marca - Grupo**: Una Marca pertenece a un Grupo, y un Grupo puede tener múltiples marcas. (1:N)
 3. **Coche - Aseguradora**: Un coche está asegurado por una Aseguradora, y una Aseguradora puede asegurar múltiples coches. (1:N)
 4. **Coche - Revision**: Un coche puede tener múltiples Revisiones, y una Revision pertenece a un Coche. (1:N)
-
----
 
 ![Diagrama ER](Modelado_keepcoding-Fleet.png)
 
