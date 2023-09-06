@@ -78,6 +78,8 @@ Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script 
 
 ![Diagrama ER](Modelado_keepcoding-Fleet.png)
 
+![Diagrama ER](Modelado_keepcoding-Fleet.png)
+
 ## Script SQL Adaptado
 
 El segundo componente es un script SQL que es 100% autónomo. Este script debe:
