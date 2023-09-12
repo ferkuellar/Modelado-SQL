@@ -1,6 +1,9 @@
 -- 1. Crear un nuevo esquema llamado KeepCoding_Flota
 CREATE SCHEMA IF NOT EXISTS KeepCoding_Flota;
 
+-- Cambiar al nuevo esquema
+SET search_path TO KeepCoding_Flota;
+
 -- 2. Crear las tablas
 -- Tabla Grupo
 CREATE TABLE Grupo (
