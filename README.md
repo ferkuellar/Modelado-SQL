@@ -275,4 +275,9 @@ El comentario "Esta consulta se debe ejecutar después de la inserción de datos
 
 ![Diagrama ER](pantalla_final.png)
 
+![Diagrama ER](pantalla_final1.png)
+
+![Diagrama ER](pantalla_final2.png)
+
+![Diagrama ER](pantalla_final3.png)
 
