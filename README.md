@@ -228,7 +228,7 @@ INSERT INTO Coche (Modelo, ID_Marca, Color, Matricula, Kilometros, ID_Asegurador
 ('Modelo 18', 8, 'Amarillo', 'MAT018', 2600, 8, 'POL018', '2022-09-19'),
 ('Modelo 19', 9, 'Plateado', 'MAT019', 10050, 9, 'POL019', '2023-03-25'),
 ('Modelo 20', 10, 'Violeta', 'MAT020', 5100, 10, 'POL020', '2023-07-07');
-
+´´´
 
 ## Consulta para Listar Coches Activos
 
