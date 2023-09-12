@@ -1,8 +1,8 @@
-## Resumen del Proyecto de Gestión de Flota de Vehículos de KeepCoding.
+# Resumen del Proyecto de Gestión de Flota de Vehículos de KeepCoding.
 
 Este proyecto se centra en la gestión eficiente de la flota de vehículos de KeepCoding. Mediante la implementación de un sistema de base de datos en PostgreSQL, se busca tener un control completo sobre diversos aspectos de la flota, como modelos de vehículos, marcas, grupos empresariales y más. Además, se abarcan detalles como el color del coche, matrícula, kilómetros recorridos y datos de la aseguradora. Un aspecto clave es el seguimiento de las revisiones de cada vehículo, incluyendo la fecha, kilómetros al momento y costos. El proyecto incluye un script SQL autónomo para crear y poblar la base de datos, así como archivos CSV de ejemplo para pruebas.
 
-### Componentes Clave
+## Componentes Clave
 
 1. **Modelo Entidad-Relación (ER)**  
    Identificación de entidades, relaciones y atributos relevantes.
@@ -45,11 +45,11 @@ El tercer componente es una consulta SQL que pueda listar todos los coches activ
 - Nombre de la empresa aseguradora
 - Número de póliza de seguro
 
-# Adaptación del Modelo Entidad-Relación y SQL para la Tarea en KeepCoding
+## Adaptación del Modelo Entidad-Relación y SQL para la Tarea en KeepCoding
 
 Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script SQL que se ajusten a los requisitos específicos de la tarea. A continuación, se describen los componentes clave.
 
-## Modelo Entidad-Relación Descriptivo para la Tarea
+### Modelo Entidad-Relación Descriptivo para la Tarea
 
 ### Entidades y Atributos
 
@@ -107,8 +107,6 @@ El segundo componente es un script SQL que es 100% autónomo. Este script debe:
 # Consulta SQL para Obtener la Lista de Coches Activos en KeepCoding
 
 La consulta SQL al final del script tiene el propósito de obtener una lista de coches activos en KeepCoding, mostrando varios detalles de cada coche. A continuación, se explica cada parte de la consulta.
-
-# Código SQL
 
 ## Script SQL para la Gestión de la Flota de Coches en KeepCoding
 
