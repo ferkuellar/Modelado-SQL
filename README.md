@@ -2,6 +2,17 @@
 
 Este proyecto se centra en la gestión eficiente de la flota de vehículos de KeepCoding. Mediante la implementación de un sistema de base de datos en PostgreSQL, se busca tener un control completo sobre diversos aspectos de la flota, como modelos de vehículos, marcas, grupos empresariales y más. Además, se abarcan detalles como el color del coche, matrícula, kilómetros recorridos y datos de la aseguradora. Un aspecto clave es el seguimiento de las revisiones de cada vehículo, incluyendo la fecha, kilómetros al momento y costos. El proyecto incluye un script SQL autónomo para crear y poblar la base de datos, así como archivos CSV de ejemplo para pruebas.
 
+### Componentes Clave
+
+1. **Modelo Entidad-Relación (ER)**  
+   Identificación de entidades, relaciones y atributos relevantes.
+
+2. **Script SQL Autónomo**  
+   Creación de esquemas, tablas y relaciones entre ellas.
+
+3. **Consulta SQL**  
+   Listado de coches activos con diversos detalles.
+
 # Gestión de Flota de Vehículos en KeepCoding
 
 La tarea tiene varios componentes clave que se deben abordar para una solución completa. Estos componentes son:
@@ -103,29 +114,6 @@ La consulta SQL al final del script tiene el propósito de obtener una lista de 
 
 El siguiente script SQL crea un nuevo esquema y varias tablas en PostgreSQL para gestionar una flota de coches. Además, incluye una consulta para obtener una lista de coches activos. A continuación, se detalla cada sección del script.
 
-## Archivos CSV de Ejemplo para Pruebas de Script SQL
-
-Los siguientes archivos CSV han sido generados para facilitar la prueba del script SQL. Cada archivo corresponde a una tabla en la base de datos y contiene datos de muestra que puedes importar.
-
-### Tablas y Archivos Correspondientes
-
-1. **Tabla Coche**: Contiene información sobre los vehículos, como el modelo, matrícula, kilómetros, etc.  
-   - [Descargar archivo CSV para la tabla Coche](Coche_Example.csv)
-
-2. **Tabla Marca**: Contiene información sobre las marcas de los vehículos y a qué grupo pertenecen.  
-   - [Descargar archivo CSV para la tabla Marca](Marca_Example.csv)
-
-3. **Tabla Grupo**: Contiene información sobre los grupos empresariales a los que pertenecen las marcas.  
-   - [Descargar archivo CSV para la tabla Grupo](Grupo_Example.csv)
-
-4. **Tabla Aseguradora**: Contiene información sobre las compañías aseguradoras.  
-   - [Descargar archivo CSV para la tabla Aseguradora](Aseguradora_Example.csv)
-
-5. **Tabla Revisión**: Contiene información sobre las revisiones realizadas a los vehículos.  
-   - [Descargar archivo CSV para la tabla Revisión](Revision_Example.csv)
-
-Estos archivos te servirán como datos de muestra para probar tu script SQL.
-
 ## Creación del Esquema
 
 ```sql
@@ -210,6 +198,37 @@ CREATE TABLE Revision (
 ```
 
 Esta tabla guarda la información sobre las revisiones realizadas a cada coche.
+
+## Inserción de Datos de Muestra
+
+Esta sección se encarga de insertar datos de muestra en las tablas. Los datos de muestra son cruciales para probar la eficacia del modelo de base de datos y las consultas asociadas.
+
+### Insertar Datos en la Tabla Coche
+
+```sql
+-- Insertar 20 registros en la tabla Coche
+INSERT INTO Coche (Modelo, ID_Marca, Color, Matricula, Kilometros, ID_Aseguradora, Numero_Poliza, Fecha_Compra) VALUES  
+('Modelo 1', 1, 'Blanco', 'MAT001', 6840, 1, 'POL001', '2015-08-03'),
+('Modelo 2', 2, 'Verde', 'MAT002', 10843, 2, 'POL002', '2017-01-20'),
+('Modelo 3', 3, 'Azul', 'MAT003', 5640, 3, 'POL003', '2018-05-12'),
+('Modelo 4', 4, 'Rojo', 'MAT004', 2130, 4, 'POL004', '2019-06-25'),
+('Modelo 5', 5, 'Negro', 'MAT005', 9876, 5, 'POL005', '2020-01-15'),
+('Modelo 6', 6, 'Gris', 'MAT006', 6543, 6, 'POL006', '2020-08-23'),
+('Modelo 7', 7, 'Marrón', 'MAT007', 4123, 7, 'POL007', '2021-04-05'),
+('Modelo 8', 8, 'Amarillo', 'MAT008', 2567, 8, 'POL008', '2021-09-11'),
+('Modelo 9', 9, 'Plateado', 'MAT009', 10001, 9, 'POL009', '2022-03-21'),
+('Modelo 10', 10, 'Violeta', 'MAT010', 5050, 10, 'POL010', '2022-07-02'),
+('Modelo 11', 1, 'Blanco', 'MAT011', 6000, 1, 'POL011', '2016-02-14'),
+('Modelo 12', 2, 'Verde', 'MAT012', 12000, 2, 'POL012', '2018-11-08'),
+('Modelo 13', 3, 'Azul', 'MAT013', 7000, 3, 'POL013', '2019-12-01'),
+('Modelo 14', 4, 'Rojo', 'MAT014', 2500, 4, 'POL014', '2020-05-09'),
+('Modelo 15', 5, 'Negro', 'MAT015', 9999, 5, 'POL015', '2021-01-20'),
+('Modelo 16', 6, 'Gris', 'MAT016', 6666, 6, 'POL016', '2021-08-30'),
+('Modelo 17', 7, 'Marrón', 'MAT017', 4200, 7, 'POL017', '2022-04-11'),
+('Modelo 18', 8, 'Amarillo', 'MAT018', 2600, 8, 'POL018', '2022-09-19'),
+('Modelo 19', 9, 'Plateado', 'MAT019', 10050, 9, 'POL019', '2023-03-25'),
+('Modelo 20', 10, 'Violeta', 'MAT020', 5100, 10, 'POL020', '2023-07-07');
+
 
 ## Consulta para Listar Coches Activos
 
