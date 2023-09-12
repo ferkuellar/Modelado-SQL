@@ -271,3 +271,8 @@ Nota: Esta consulta solo tiene sentido después de haber insertado datos en las 
 
 El comentario "Esta consulta se debe ejecutar después de la inserción de datos" significa que esta consulta tiene sentido solo después de que hayas insertado datos en las tablas. De lo contrario, la consulta no devolverá ningún resultado porque las tablas estarán vacías.
 
+### Pantalla Final
+
+![Diagrama ER](pantalla_final.png)
+
+
