@@ -108,9 +108,9 @@ El segundo componente es un script SQL que es 100% autónomo. Este script debe:
 
 La consulta SQL al final del script tiene el propósito de obtener una lista de coches activos en KeepCoding, mostrando varios detalles de cada coche. A continuación, se explica cada parte de la consulta.
 
-## Código SQL
+# Código SQL
 
-# Script SQL para la Gestión de la Flota de Coches en KeepCoding
+## Script SQL para la Gestión de la Flota de Coches en KeepCoding
 
 El siguiente script SQL crea un nuevo esquema y varias tablas en PostgreSQL para gestionar una flota de coches. Además, incluye una consulta para obtener una lista de coches activos. A continuación, se detalla cada sección del script.
 
