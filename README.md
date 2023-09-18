@@ -13,7 +13,7 @@ Este proyecto se centra en la gestión eficiente de la flota de vehículos. Medi
 3. **Consulta SQL**  
    Listado de coches activos con diversos detalles.
 
-# Gestión de Flota de Vehículos en KeepCoding
+# Gestión de Flota de Vehículos.
 
 La tarea tiene varios componentes clave que se deben abordar para una solución completa. Estos componentes son:
 
@@ -45,7 +45,7 @@ El tercer componente es una consulta SQL que pueda listar todos los coches activ
 - Nombre de la empresa aseguradora
 - Número de póliza de seguro
 
-## Adaptación del Modelo Entidad-Relación y SQL para la Tarea en KeepCoding
+## Adaptación del Modelo Entidad-Relación y SQL.
 
 Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script SQL que se ajusten a los requisitos específicos de la tarea. A continuación, se describen los componentes clave.
 
@@ -104,11 +104,11 @@ El segundo componente es un script SQL que es 100% autónomo. Este script debe:
 - Definir las claves primarias y claves foráneas para establecer las relaciones entre las tablas.
 - [Aquí el enlace al script SQL](keepcoding_flota.sql)
 
-# Consulta SQL para Obtener la Lista de Coches Activos en KeepCoding
+# Consulta SQL para Obtener la Lista de Coches Activos
 
 La consulta SQL al final del script tiene el propósito de obtener una lista de coches activos en KeepCoding, mostrando varios detalles de cada coche. A continuación, se explica cada parte de la consulta.
 
-## Script SQL para la Gestión de la Flota de Coches en KeepCoding
+## Script SQL para la Gestión de la Flota de Coches
 
 El siguiente script SQL crea un nuevo esquema y varias tablas en PostgreSQL para gestionar una flota de coches. Además, incluye una consulta para obtener una lista de coches activos. A continuación, se detalla cada sección del script.
 
