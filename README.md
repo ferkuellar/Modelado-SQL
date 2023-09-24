@@ -355,7 +355,6 @@ INSERT INTO Color (Nombre_Color) VALUES
 ```
 ```
 ```
-```
 
 # Consulta SQL Profesional para Listar Coches Activos
 
