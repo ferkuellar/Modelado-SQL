@@ -410,6 +410,7 @@ ORDER BY
     "Divisa de Pago del Servicio",
     "Fecha de Compra" ASC;
 ```
+```
 
 ### Pantalla Final
 
