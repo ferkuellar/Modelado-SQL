@@ -143,6 +143,7 @@ Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script 
 5. **Coche - Aseguradora**: Un Coche está asegurado por una Aseguradora, y una Aseguradora puede asegurar múltiples Coches. (1:N)
 6. **Revision - Coche**: Una Revisión se realiza en un Coche, y un Coche puede tener múltiples Revisiones. (1:N)
 7. **Revision - Divisa**: Una Revisión está en una Divisa específica (EURO, DÓLAR, etc.). (1:1)
+8. **Poliza - Aseguradora**: Una Póliza está asociada con una única Aseguradora, y una Aseguradora puede emitir múltiples Pólizas. (1:N)
 
 ## Modelo Entidad-Relación Descriptivo para la tabla Poliza
 
@@ -244,6 +245,19 @@ CREATE TABLE Modelo (
 CREATE TABLE Aseguradora (
     ID_Aseguradora SERIAL PRIMARY KEY,
     Nombre_Aseguradora VARCHAR(50) NOT NULL
+);
+```
+
+
+```sql
+-- Create Poliza table
+CREATE TABLE IF NOT EXISTS Poliza (
+    ID_Poliza SERIAL PRIMARY KEY,
+    ID_Aseguradora INT REFERENCES Aseguradora(ID_Aseguradora),
+    Tipo_Poliza VARCHAR(50) NOT NULL,
+    Fecha_Inicio DATE,
+    Fecha_Expiracion DATE,
+    Cobertura TEXT
 );
 ```
 
