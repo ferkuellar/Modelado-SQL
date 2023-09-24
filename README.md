@@ -513,4 +513,4 @@ ORDER BY
 
 ## Pantalla Final
 
-![Diagrama ER](pantalla_final.png)
+![Diagrama ER](pantalla_final_1.png)
