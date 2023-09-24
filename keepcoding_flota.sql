@@ -30,6 +30,16 @@ CREATE TABLE IF NOT EXISTS Aseguradora (
     Nombre_Aseguradora VARCHAR(50) NOT NULL
 );
 
+-- Create Poliza table
+CREATE TABLE IF NOT EXISTS Poliza (
+    ID_Poliza SERIAL PRIMARY KEY,
+    ID_Aseguradora INT REFERENCES Aseguradora(ID_Aseguradora),
+    Tipo_Poliza VARCHAR(50) NOT NULL,
+    Fecha_Inicio DATE,
+    Fecha_Expiracion DATE,
+    Cobertura TEXT
+);
+
 -- Create Divisa table
 CREATE TABLE IF NOT EXISTS Divisa (
     ID_Divisa SERIAL PRIMARY KEY,
