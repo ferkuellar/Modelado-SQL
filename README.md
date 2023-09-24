@@ -341,48 +341,59 @@ INSERT INTO Color (Nombre_Color) VALUES
 ```
 ```
 
-## Consulta para Listar Coches Activos
+# Consulta SQL Profesional para Listar Coches Activos
 
-Esta sección contiene una consulta SQL para listar los coches activos en KeepCoding. La consulta se relaciona con varias tablas para proporcionar una vista completa de cada coche.
+Esta consulta SQL tiene como objetivo obtener una lista completa de coches activos en la base de datos, incluyendo varios detalles. Se recomienda ejecutar esta consulta después de haber insertado datos en las tablas relevantes.
+
+## Detalles de la Consulta
+
+1. **Establecer Formato de Fecha**: Se establece el formato de la fecha a 'YYYY-MM-DD'.
+2. **Selección de Campos**: Seleccionamos campos específicos de diferentes tablas.
+3. **Joins**: Utilizamos JOINs para relacionar diferentes tablas.
+4. **Ordenación**: Los resultados se ordenan por Marca, Modelo, Divisa y Fecha de Compra.
+
+## Código SQL
 
 ```sql
--- Consulta para obtener el listado de coches activos en KeepCoding
--- Esta consulta se debe ejecutar después de la inserción de datos
+-- Establecer el formato para la Fecha_Compra a 'YYYY-MM-DD'
+SET DATESTYLE TO ISO, MDY;
+
+-- Iniciar la consulta
 SELECT 
-    c.Modelo, 
-    m.Nombre_Marca, 
-    g.Nombre_Grupo,
-    c.Fecha_Compra,
-    c.Matricula,
-    c.Color,
-    c.Kilometros,
-    a.Nombre_Aseguradora,
-    c.Numero_Poliza
+    co.ID_Coche AS "ID del Coche", 
+    mo.Nombre_Modelo AS "Modelo del Coche", 
+    ma.Nombre_Marca AS "Marca del Coche", 
+    g.Nombre_Grupo AS "Grupo Empresarial",
+    TO_CHAR(co.Fecha_Compra, 'YYYY-MM-DD') AS "Fecha de Compra",
+    co.Matricula AS "Matrícula",
+    col.Nombre_Color AS "Color del Coche",
+    co.Kilometros AS "Kilómetros Recorridos",
+    a.Nombre_Aseguradora AS "Aseguradora",
+    co.Numero_Poliza AS "Número de Póliza",
+    COALESCE(d.Nombre_Divisa, 'Sin Información') AS "Divisa de Pago del Servicio",
+    COALESCE(r.Importe, 0) AS "Costo de Revisión"
 FROM 
-    Coche c
+    Coche AS co
 JOIN 
-    Marca m ON c.ID_Marca = m.ID_Marca
+    Modelo AS mo ON co.ID_Modelo = mo.ID_Modelo
 JOIN 
-    Grupo g ON m.ID_Grupo = g.ID_Grupo
+    Marca AS ma ON mo.ID_Marca = ma.ID_Marca
 JOIN 
-    Aseguradora a ON c.ID_Aseguradora = a.ID_Aseguradora;
-```
-
-Nota: Esta consulta solo tiene sentido después de haber insertado datos en las tablas.
-
-### Descripción de las partes de la consulta
-
-- **SELECT**: Esta parte selecciona los campos que queremos mostrar en el resultado. Seleccionamos campos tanto de la tabla Coche (alias c) como de las tablas Marca (alias m), Grupo (alias g) y Aseguradora (alias a).
-
-- **FROM Coche c**: Establece la tabla principal de la consulta, la tabla Coche, y le asigna un alias c para referirse a ella de forma más sencilla.
-
-- **JOIN Marca m ON c.ID_Marca = m.ID_Marca**: Une la tabla Coche con la tabla Marca en el campo que las relaciona, que en este caso son ID_Marca de ambas tablas.
-
-- **JOIN Grupo g ON m.ID_Grupo = g.ID_Grupo**: Similar al JOIN anterior, pero une la tabla Marca con la tabla Grupo.
-
-- **JOIN Aseguradora a ON c.ID_Aseguradora = a.ID_Aseguradora**: Une la tabla Coche con la tabla Aseguradora.
-
-El comentario "Esta consulta se debe ejecutar después de la inserción de datos" significa que esta consulta tiene sentido solo después de que hayas insertado datos en las tablas. De lo contrario, la consulta no devolverá ningún resultado porque las tablas estarán vacías.
+    Grupo AS g ON ma.ID_Grupo = g.ID_Grupo
+JOIN 
+    Color AS col ON co.ID_Color = col.ID_Color
+JOIN 
+    Aseguradora AS a ON co.ID_Aseguradora = a.ID_Aseguradora
+LEFT JOIN 
+    Revision AS r ON co.ID_Coche = r.ID_Coche
+LEFT JOIN 
+    Divisa AS d ON r.ID_Divisa = d.ID_Divisa
+-- Ordenar los resultados por Marca, Modelo, Divisa y finalmente por Fecha de Compra
+ORDER BY 
+    "Marca del Coche", 
+    "Modelo del Coche", 
+    "Divisa de Pago del Servicio",
+    "Fecha de Compra" ASC;
 
 ### Pantalla Final
 
