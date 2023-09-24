@@ -502,7 +502,6 @@ ORDER BY
     "Marca del Coche", 
     "Modelo del Coche", 
     "Fecha de Compra" ASC;
-
 ```
 
 ### Detalles de los Joins
