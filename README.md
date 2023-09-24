@@ -3,9 +3,9 @@
 1. [Resumen del Proyecto de Gestión de Flota de Vehículo](#resumen-del-proyecto-de-gestión-de-flota-de-vehículo)
    - [Componentes Clave](#componentes-clave)
 2. [Gestión de Flota de Vehículos](#gestión-de-flota-de-vehículos)
-   - [Modelo Entidad-Relación (ER)](#1-modelo-entidad-relación-er)
-   - [Script SQL Autónomo](#2-script-sql-autónomo)
-   - [Consulta SQL](#3-consulta-sql)
+   - [Modelo Entidad-Relación (ER)](#modelo-entidad-relación-er)
+   - [Script SQL Autónomo](#script-sql-autónomo)
+   - [Consulta SQL](#consulta-sql)
 3. [Adaptación del Modelo Entidad-Relación y SQL](#adaptación-del-modelo-entidad-relación-y-sql)
    - [Entidades y Atributos](#entidades-y-atributos)
    - [Relaciones](#relaciones)
@@ -23,6 +23,7 @@
    - [Detalles de la Consulta](#detalles-de-la-consulta)
    - [Código SQL](#código-sql)
 7. [Pantalla Final](#pantalla-final)
+
 
 
 # Resumen del Proyecto de Gestión de Flota de Vehículo.
