@@ -355,6 +355,7 @@ INSERT INTO Color (Nombre_Color) VALUES
 ```
 ```
 ```
+```
 
 # Consulta SQL Profesional para Listar Coches Activos
 
@@ -411,8 +412,7 @@ ORDER BY
     "Fecha de Compra" ASC;
 ```
 ```
-
-### Pantalla Final
+## Pantalla Final
 
 ![Diagrama ER](pantalla_final.png)
 
