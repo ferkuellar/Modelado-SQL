@@ -173,7 +173,7 @@ Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script 
 - **Cobertura** es un campo de texto y puede contener información detallada sobre la cobertura de la póliza.
 
 
-![Diagrama ER](EER_diagram.png)
+![Diagrama ER](EER_diagram_1.png)
 
 ## Script SQL Adaptado
 
