@@ -53,44 +53,60 @@ Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script 
 
 ### Entidades y Atributos
 
-#### 1. Coche
-- **ID_Coche (PK)**
-- Modelo
+#### 1. Grupo
+
+- **ID_Grupo (PK)**
+- Nombre_Grupo
+
+#### 2. Marca
+- **ID_Marca (PK)**
+- Nombre_Marca
+- ID_Grupo (FK)
+  
+#### 3. Modelo
+- **ID_Modelo (PK)**
+- Nombre_Modelo
 - ID_Marca (FK)
-- Color
+
+#### 4. Aseguradora
+- **ID_Aseguradora (PK)**
+- Nombre_Aseguradora
+
+#### 5. Divisa
+- **ID_Divisa (PK)**
+- Nombre_Divisa
+
+#### 6. Color
+- **ID_Color (PK)**
+- Nombre_Color
+
+#### 7. Coche
+- **ID_Coche (PK)**
+- ID_Modelo (FK)
+- ID_Color (FK)
 - Matricula
 - Kilometros
 - ID_Aseguradora (FK)
 - Numero_Poliza
 - Fecha_Compra
 
-#### 2. Marca
-- **ID_Marca (PK)**
-- Nombre_Marca
-- ID_Grupo (FK)
-
-#### 3. Grupo
-- **ID_Grupo (PK)**
-- Nombre_Grupo
-
-#### 4. Aseguradora
-- **ID_Aseguradora (PK)**
-- Nombre_Aseguradora
-
-#### 5. Revision
+#### 8. Revision
 - **ID_Revision (PK)**
 - ID_Coche (FK)
 - Kilometros_Revision
 - Fecha_Revision
 - Importe
-- Moneda
+- ID_Divisa (FK)
 
 ### Relaciones
 
-1. **Coche - Marca**: Un coche pertenece a una Marca, y una Marca puede tener múltiples coches. (1:N)
-2. **Marca - Grupo**: Una Marca pertenece a un Grupo, y un Grupo puede tener múltiples marcas. (1:N)
-3. **Coche - Aseguradora**: Un coche está asegurado por una Aseguradora, y una Aseguradora puede asegurar múltiples coches. (1:N)
-4. **Coche - Revision**: Un coche puede tener múltiples Revisiones, y una Revision pertenece a un Coche. (1:N)
+1. **Marca - Grupo**: Una Marca pertenece a un Grupo, y un Grupo puede tener múltiples Marcas. (1:N)
+2. **Modelo - Marca**: Un Modelo pertenece a una Marca, y una Marca puede tener múltiples Modelos. (1:N)
+3. **Coche - Modelo**: Un Coche tiene un Modelo, y un Modelo puede estar asociado con múltiples Coches. (1:N)
+4. **Coche - Color**: Un Coche tiene un Color, y un Color puede estar asociado con múltiples Coches. (1:N)
+5. **Coche - Aseguradora**: Un Coche está asegurado por una Aseguradora, y una Aseguradora puede asegurar múltiples Coches. (1:N)
+6. **Revision - Coche**: Una Revisión se realiza en un Coche, y un Coche puede tener múltiples Revisiones. (1:N)
+7. **Revision - Divisa**: Una Revisión está en una Divisa específica (EURO, DÓLAR, etc.). (1:1)
 
 ![Diagrama ER](Modelado_keepcoding-Fleet.png)
 
