@@ -410,10 +410,3 @@ ORDER BY
 ## Pantalla Final
 
 ![Diagrama ER](pantalla_final.png)
-
-![Diagrama ER](pantalla_final1.png)
-
-![Diagrama ER](pantalla_final2.png)
-
-![Diagrama ER](pantalla_final3.png)
-
