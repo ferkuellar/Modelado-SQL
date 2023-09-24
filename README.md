@@ -467,7 +467,7 @@ La consulta principal está diseñada para reunir datos de múltiples tablas en 
 
 ### SQL Code
 
-\```sql
+```sql
 SELECT 
     co.ID_Coche AS "ID del Coche", 
     mo.Nombre_Modelo AS "Modelo del Coche", 
@@ -503,7 +503,7 @@ ORDER BY
     "Modelo del Coche", 
     "Fecha de Compra" ASC;
 
-\```
+```
 
 ### Detalles de los Joins
 
