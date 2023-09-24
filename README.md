@@ -321,11 +321,11 @@ Insertaremos 5 registros en la tabla Grupo. Cada grupo podría representar una c
 ```sql
 -- Insertar 5 registros en Grupo
 INSERT INTO Grupo (Nombre_Grupo) VALUES
-('Grupo A'),
-('Grupo B'),
-('Grupo C'),
-('Grupo D'),
-('Grupo E');
+   ('Grupo A'),
+   ('Grupo B'),
+   ('Grupo C'),
+   ('Grupo D'),
+   ('Grupo E');
 ```
 
 Insertar Datos en la Tabla Marca
@@ -334,16 +334,16 @@ Insertaremos 10 registros en la tabla Marca. Cada marca estará asociada con un 
 ```sql
 -- Insertar 10 registros en Marca
 INSERT INTO Marca (Nombre_Marca, ID_Grupo) VALUES
-('Toyota', 1),
-('Honda', 2),
-('Ford', 3),
-('Chevrolet', 4),
-('Nissan', 5),
-('Volkswagen', 1),
-('Hyundai', 2),
-('Subaru', 3),
-('Kia', 4),
-('Jeep', 5);
+   ('Toyota', 1),
+   ('Honda', 2),
+   ('Ford', 3),
+   ('Chevrolet', 4),
+   ('Nissan', 5),
+   ('Volkswagen', 1),
+   ('Hyundai', 2),
+   ('Subaru', 3),
+   ('Kia', 4),
+   ('Jeep', 5);
 ```
 
 Insertar Datos en la Tabla Modelo
@@ -352,16 +352,16 @@ Insertaremos 10 modelos de coches, cada uno asociado con una marca en específic
 ```sql
 -- Insertar 10 registros en Modelo
 INSERT INTO Modelo (Nombre_Modelo, ID_Marca) VALUES
-('Modelo 1', 1),
-('Modelo 2', 2),
-('Modelo 3', 3),
-('Modelo 4', 4),
-('Modelo 5', 5),
-('Modelo 6', 6),
-('Modelo 7', 7),
-('Modelo 8', 8),
-('Modelo 9', 9),
-('Modelo 10', 10);
+   ('Modelo 1', 1),
+   ('Modelo 2', 2),
+   ('Modelo 3', 3),
+   ('Modelo 4', 4),
+   ('Modelo 5', 5),
+   ('Modelo 6', 6),
+   ('Modelo 7', 7),
+   ('Modelo 8', 8),
+   ('Modelo 9', 9),
+   ('Modelo 10', 10);
 ```
 
 Insertar Datos en la Tabla Aseguradora
@@ -370,16 +370,16 @@ Insertaremos 10 registros en la tabla Aseguradora, representando diferentes comp
 ```sql
 -- Insertar 10 registros en Aseguradora
 INSERT INTO Aseguradora (Nombre_Aseguradora) VALUES
-('CoberturaTotal'),
-('Seguros XYZ'),
-('SeguroFácil'),
-('AseguraTodo'),
-('ProtegeYa'),
-('SeguroMax'),
-('Confiaseguro'),
-('SeguroClaro'),
-('AseguraYA'),
-('SeguroTOP');
+   ('CoberturaTotal'),
+   ('Seguros XYZ'),
+   ('SeguroFácil'),
+   ('AseguraTodo'),
+   ('ProtegeYa'),
+   ('SeguroMax'),
+   ('Confiaseguro'),
+   ('SeguroClaro'),
+   ('AseguraYA'),
+   ('SeguroTOP');
 ```
 
 ```sql
@@ -413,13 +413,13 @@ Insertaremos 7 registros de diferentes divisas.
 ```sql
 -- Insertar 7 registros en Divisa
 INSERT INTO Divisa (Nombre_Divisa) VALUES
-('EURO'),
-('DOLLAR'),
-('YEN'),
-('POUND'),
-('RUPEE'),
-('YUAN'),
-('PESO');
+   ('EURO'),
+   ('DOLLAR'),
+   ('YEN'),
+   ('POUND'),
+   ('RUPEE'),
+   ('YUAN'),
+   ('PESO');
 ```
 
 Insertar registros en la tabla Revision para simular pagos de servicios en diferentes divisas
@@ -443,16 +443,16 @@ Insertaremos 10 registros de diferentes colores que pueden tener los coches.
 ```sql
 -- Insertar 10 registros en Color
 INSERT INTO Color (Nombre_Color) VALUES
-('Blanco'),
-('Verde'),
-('Azul'),
-('Rojo'),
-('Negro'),
-('Gris'),
-('Marrón'),
-('Amarillo'),
-('Plateado'),
-('Violeta');
+   ('Blanco'),
+   ('Verde'),
+   ('Azul'),
+   ('Rojo'),
+   ('Negro'),
+   ('Gris'),
+   ('Marrón'),
+   ('Amarillo'),
+   ('Plateado'),
+   ('Violeta');
 ```
 
 
@@ -523,8 +523,6 @@ ORDER BY
 Los resultados se ordenan por "Marca del Coche", seguido de "Modelo del Coche" y, finalmente, por "Fecha de Compra" en orden ascendente.
 
 ---
-
-
 
 ## Pantalla Final
 
