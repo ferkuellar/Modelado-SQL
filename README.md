@@ -456,24 +456,18 @@ INSERT INTO Color (Nombre_Color) VALUES
 ('Violeta');
 ```
 
-# Consulta SQL Profesional para Listar Coches Activos
 
-Esta consulta SQL tiene como objetivo obtener una lista completa de coches activos en la base de datos, incluyendo varios detalles. Se recomienda ejecutar esta consulta después de haber insertado datos en las tablas relevantes.
+# Detalle Avanzado de la Consulta Principal
 
-## Detalles de la Consulta
+La consulta principal está diseñada para reunir datos de múltiples tablas en una sola vista. A continuación, se desglosan los componentes clave de la consulta SQL, permitiendo una comprensión completa de su funcionalidad.
 
-1. **Establecer Formato de Fecha**: Se establece el formato de la fecha a 'YYYY-MM-DD'.
-2. **Selección de Campos**: Seleccionamos campos específicos de diferentes tablas.
-3. **Joins**: Utilizamos JOINs para relacionar diferentes tablas.
-4. **Ordenación**: Los resultados se ordenan por Marca, Modelo, Divisa y Fecha de Compra.
+---
 
-## Código SQL
+## Consulta Principal Detallada
 
-```sql
--- Establecer el formato para la Fecha_Compra a 'YYYY-MM-DD'
-SET DATESTYLE TO ISO, MDY;
+### SQL Code
 
--- Iniciar la consulta
+\```sql
 SELECT 
     co.ID_Coche AS "ID del Coche", 
     mo.Nombre_Modelo AS "Modelo del Coche", 
@@ -485,8 +479,11 @@ SELECT
     co.Kilometros AS "Kilómetros Recorridos",
     a.Nombre_Aseguradora AS "Aseguradora",
     co.Numero_Poliza AS "Número de Póliza",
-    COALESCE(d.Nombre_Divisa, 'Sin Información') AS "Divisa de Pago del Servicio",
-    COALESCE(r.Importe, 0) AS "Costo de Revisión"
+    p.Tipo_Poliza AS "Tipo de Póliza",
+    TO_CHAR(p.Fecha_Inicio, 'YYYY-MM-DD') AS "Fecha de Inicio de Póliza",
+    TO_CHAR(p.Fecha_Expiracion, 'YYYY-MM-DD') AS "Fecha de Expiración de Póliza",
+    (SELECT Nombre_Divisa FROM Divisa WHERE ID_Divisa = (SELECT ID_Divisa FROM Revision WHERE ID_Coche = co.ID_Coche LIMIT 1)) AS "Divisa de Pago del Servicio",
+    (SELECT Importe FROM Revision WHERE ID_Coche = co.ID_Coche LIMIT 1) AS "Costo de Revisión"
 FROM 
     Coche AS co
 JOIN 
@@ -499,17 +496,37 @@ JOIN
     Color AS col ON co.ID_Color = col.ID_Color
 JOIN 
     Aseguradora AS a ON co.ID_Aseguradora = a.ID_Aseguradora
-LEFT JOIN 
-    Revision AS r ON co.ID_Coche = r.ID_Coche
-LEFT JOIN 
-    Divisa AS d ON r.ID_Divisa = d.ID_Divisa
--- Ordenar los resultados por Marca, Modelo, Divisa y finalmente por Fecha de Compra
+JOIN 
+    Poliza AS p ON a.ID_Aseguradora = p.ID_Aseguradora
 ORDER BY 
     "Marca del Coche", 
     "Modelo del Coche", 
-    "Divisa de Pago del Servicio",
     "Fecha de Compra" ASC;
-```
+
+\```
+
+### Detalles de los Joins
+
+- **`Coche AS co JOIN Modelo AS mo`**: Se une la tabla `Coche` con la tabla `Modelo` a través del campo `ID_Modelo`.
+- **`Modelo AS mo JOIN Marca AS ma`**: Se une la tabla `Modelo` con la tabla `Marca` a través del campo `ID_Marca`.
+- **`Marca AS ma JOIN Grupo AS g`**: Se une la tabla `Marca` con la tabla `Grupo` a través del campo `ID_Grupo`.
+- **`Coche AS co JOIN Color AS col`**: Se une la tabla `Coche` con la tabla `Color` a través del campo `ID_Color`.
+- **`Coche AS co JOIN Aseguradora AS a`**: Se une la tabla `Coche` con la tabla `Aseguradora` a través del campo `ID_Aseguradora`.
+- **`Aseguradora AS a JOIN Poliza AS p`**: Se une la tabla `Aseguradora` con la tabla `Poliza` a través del campo `ID_Aseguradora`.
+
+### Detalles de las Subconsultas
+
+1. **Subconsulta para Divisa de Pago del Servicio**: Utiliza una subconsulta para obtener la divisa utilizada para la revisión del coche. La subconsulta encuentra el `ID_Divisa` correspondiente al `ID_Coche` en la tabla `Revision` y luego utiliza este `ID_Divisa` para encontrar el `Nombre_Divisa` en la tabla `Divisa`.
+   
+2. **Subconsulta para Costo de Revisión**: Utiliza una subconsulta para encontrar el costo de la última revisión realizada al coche. La subconsulta busca el campo `Importe` en la tabla `Revision` donde el `ID_Coche` coincide.
+
+### Ordenación de los Resultados
+
+Los resultados se ordenan por "Marca del Coche", seguido de "Modelo del Coche" y, finalmente, por "Fecha de Compra" en orden ascendente.
+
+---
+
+
 
 ## Pantalla Final
 
