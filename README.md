@@ -248,6 +248,7 @@ CREATE TABLE Aseguradora (
 );
 ```
 
+### Tabla Poliza
 
 ```sql
 -- Create Poliza table
