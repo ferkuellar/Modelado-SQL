@@ -131,14 +131,14 @@ El siguiente script SQL crea un nuevo esquema y varias tablas en PostgreSQL para
 ## Creación del Esquema
 
 ```sql
--- Crear un nuevo esquema llamado KeepCoding_Flota
-CREATE SCHEMA IF NOT EXISTS KeepCoding_Flota;
+-- Crear un nuevo esquema llamado KeepCoding
+CREATE SCHEMA IF NOT EXISTS KeepCoding;
 
 -- Cambiar al nuevo esquema
-SET search_path TO KeepCoding_Flota;
+SET search_path TO KeepCoding;
 ```
 
-Esta sección crea un nuevo esquema llamado `KeepCoding_Flota` y cambia el esquema de búsqueda al recién creado.
+Esta sección crea un nuevo esquema llamado `KeepCoding` y cambia el esquema de búsqueda al recién creado.
 
 ## Creación de Tablas
 
@@ -164,7 +164,16 @@ CREATE TABLE Marca (
 );
 ```
 
-Esta tabla guarda la información sobre las diferentes marcas de coches y se relaciona con la tabla Grupo.
+### Tabla Modelo
+
+```sql
+-- Crear la tabla Modelo
+CREATE TABLE Modelo (
+    ID_Modelo SERIAL PRIMARY KEY,
+    Nombre_Modelo VARCHAR(50) NOT NULL,
+    ID_Marca INT REFERENCES Marca(ID_Marca)
+);
+```
 
 ### Tabla Aseguradora
 
@@ -176,7 +185,25 @@ CREATE TABLE Aseguradora (
 );
 ```
 
-Esta tabla guarda la información sobre las diferentes compañías de seguros.
+### Tabla Divisa
+
+```sql
+-- Crear la tabla Divisa
+CREATE TABLE Divisa (
+    ID_Divisa SERIAL PRIMARY KEY,
+    Nombre_Divisa VARCHAR(10) NOT NULL
+);
+```
+
+### Tabla Color
+
+```sql
+-- Crear la tabla Color
+CREATE TABLE Color (
+    ID_Color SERIAL PRIMARY KEY,
+    Nombre_Color VARCHAR(20) NOT NULL
+);
+```
 
 ### Tabla Coche
 
@@ -184,18 +211,15 @@ Esta tabla guarda la información sobre las diferentes compañías de seguros.
 -- Crear la tabla Coche
 CREATE TABLE Coche (
     ID_Coche SERIAL PRIMARY KEY,
-    Modelo VARCHAR(50) NOT NULL,
-    ID_Marca INT REFERENCES Marca(ID_Marca),
-    Color VARCHAR(20),
-    Matricula VARCHAR(20),
+    ID_Modelo INT REFERENCES Modelo(ID_Modelo),
+    ID_Color INT REFERENCES Color(ID_Color),
+    Matricula VARCHAR(10) NOT NULL,
     Kilometros INT,
     ID_Aseguradora INT REFERENCES Aseguradora(ID_Aseguradora),
     Numero_Poliza VARCHAR(20),
-    Fecha_Compra DATE NOT NULL
+    Fecha_Compra DATE
 );
 ```
-
-Esta tabla guarda la información sobre los diferentes coches en la flota.
 
 ### Tabla Revision
 
@@ -207,11 +231,9 @@ CREATE TABLE Revision (
     Kilometros_Revision INT,
     Fecha_Revision DATE,
     Importe FLOAT,
-    Moneda VARCHAR(10)
+    ID_Divisa INT REFERENCES Divisa(ID_Divisa)
 );
 ```
-
-Esta tabla guarda la información sobre las revisiones realizadas a cada coche.
 
 ## Inserción de Datos de Muestra
 
