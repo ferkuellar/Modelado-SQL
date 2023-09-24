@@ -125,6 +125,15 @@ Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script 
 - Importe
 - ID_Divisa (FK)
 
+#### 9. Poliza
+
+- **ID_Poliza (PK)**
+- ID_Aseguradora (FK)
+- Tipo_Poliza
+- Fecha_Inicio
+- Fecha_Expiracion
+- Cobertura
+
 ### Relaciones
 
 1. **Marca - Grupo**: Una Marca pertenece a un Grupo, y un Grupo puede tener múltiples Marcas. (1:N)
@@ -134,6 +143,34 @@ Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script 
 5. **Coche - Aseguradora**: Un Coche está asegurado por una Aseguradora, y una Aseguradora puede asegurar múltiples Coches. (1:N)
 6. **Revision - Coche**: Una Revisión se realiza en un Coche, y un Coche puede tener múltiples Revisiones. (1:N)
 7. **Revision - Divisa**: Una Revisión está en una Divisa específica (EURO, DÓLAR, etc.). (1:1)
+
+## Modelo Entidad-Relación Descriptivo para la tabla Poliza
+
+### Entidades y Atributos:
+
+#### Poliza
+- **ID_Poliza**: Identificador único para cada póliza de seguro. (Clave Primaria)
+- **ID_Aseguradora**: Identificador de la aseguradora que emite la póliza. (Clave Externa)
+- **Tipo_Poliza**: Tipo de la póliza de seguro, como "Responsabilidad Civil", "Todo Riesgo", etc.
+- **Fecha_Inicio**: Fecha en la cual la póliza de seguro entra en vigencia.
+- **Fecha_Expiracion**: Fecha en la cual la póliza de seguro expira.
+- **Cobertura**: Texto que describe la cobertura ofrecida por la póliza, como daño a terceros, robo, etc.
+
+### Relaciones:
+
+#### Poliza - Aseguradora
+- Una póliza está asociada con una única aseguradora.
+- Una aseguradora puede emitir múltiples pólizas.
+- **ID_Aseguradora** en la tabla `Poliza` es una clave externa que referencia **ID_Aseguradora** en la tabla `Aseguradora`.
+
+### Restricciones:
+
+- **ID_Poliza** es la clave primaria y debe ser única.
+- **ID_Aseguradora** debe existir en la tabla `Aseguradora`.
+- **Tipo_Poliza** no puede ser nulo.
+- **Fecha_Inicio** y **Fecha_Expiracion** pueden ser opcionales dependiendo de la lógica del negocio.
+- **Cobertura** es un campo de texto y puede contener información detallada sobre la cobertura de la póliza.
+
 
 ![Diagrama ER](EER_diagram.png)
 
