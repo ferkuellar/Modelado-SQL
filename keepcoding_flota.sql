@@ -116,12 +116,36 @@ INSERT INTO Aseguradora (Nombre_Aseguradora) VALUES
     ('Seguros XYZ'), 
     ('SeguroFácil'), 
     ('AseguraTodo'),
-	('ProtegeYa'), 
+    ('ProtegeYa'), 
     ('SeguroMax'), 
     ('Confiaseguro'), 
     ('SeguroClaro'), 
     ('AseguraYA'), 
     ('SeguroTOP');
+
+-- Insertar 20 registros en la tabla Poliza
+INSERT INTO Poliza (ID_Aseguradora, Tipo_Poliza, Fecha_Inicio, Fecha_Expiracion, Cobertura) VALUES  
+    (1, 'Responsabilidad Civil', '2021-01-01', '2022-01-01', 'Daño a terceros hasta $10,000'),
+    (2, 'Todo Riesgo', '2021-02-01', '2022-02-01', 'Cobertura completa, incluido robo y daño natural'),
+    (3, 'Responsabilidad Civil', '2021-03-01', '2022-03-01', 'Daño a terceros hasta $15,000'),
+    (4, 'Todo Riesgo', '2021-04-01', '2022-04-01', 'Cobertura completa, incluido robo y daño natural'),
+    (5, 'Responsabilidad Civil', '2021-05-01', '2022-05-01', 'Daño a terceros hasta $5,000'),
+    (6, 'Todo Riesgo', '2021-06-01', '2022-06-01', 'Cobertura completa, incluido robo y daño natural'),
+    (7, 'Responsabilidad Civil', '2021-07-01', '2022-07-01', 'Daño a terceros hasta $20,000'),
+    (8, 'Todo Riesgo', '2021-08-01', '2022-08-01', 'Cobertura completa, incluido robo y daño natural'),
+    (9, 'Responsabilidad Civil', '2021-09-01', '2022-09-01', 'Daño a terceros hasta $8,000'),
+    (10, 'Todo Riesgo', '2021-10-01', '2022-10-01', 'Cobertura completa, incluido robo y daño natural'),
+    (1, 'Responsabilidad Civil', '2021-11-01', '2022-11-01', 'Daño a terceros hasta $12,000'),
+    (2, 'Todo Riesgo', '2021-12-01', '2022-12-01', 'Cobertura completa, incluido robo y daño natural'),
+    (3, 'Responsabilidad Civil', '2022-01-01', '2023-01-01', 'Daño a terceros hasta $18,000'),
+    (4, 'Todo Riesgo', '2022-02-01', '2023-02-01', 'Cobertura completa, incluido robo y daño natural'),
+    (5, 'Responsabilidad Civil', '2022-03-01', '2023-03-01', 'Daño a terceros hasta $6,000'),
+    (6, 'Todo Riesgo', '2022-04-01', '2023-04-01', 'Cobertura completa, incluido robo y daño natural'),
+    (7, 'Responsabilidad Civil', '2022-05-01', '2023-05-01', 'Daño a terceros hasta $22,000'),
+    (8, 'Todo Riesgo', '2022-06-01', '2023-06-01', 'Cobertura completa, incluido robo y daño natural'),
+    (9, 'Responsabilidad Civil', '2022-07-01', '2023-07-01', 'Daño a terceros hasta $10,000'),
+    (10, 'Todo Riesgo', '2022-08-01', '2023-08-01', 'Cobertura completa, incluido robo y daño natural');
+
 
 -- Insertar 7 registros en Divisa
 INSERT INTO Divisa (Nombre_Divisa) VALUES
