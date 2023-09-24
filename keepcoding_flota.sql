@@ -1,36 +1,38 @@
--- Create Schema
+-- Crear el esquema
 CREATE SCHEMA IF NOT EXISTS KeepCoding;
 
--- Set the search path to the new schema
+-- Establecer el esquema de búsqueda en el nuevo esquema
 SET search_path TO KeepCoding;
 
--- Create Grupo table
+-- Crear las tablas
+
+-- Crear tabla Grupo
 CREATE TABLE IF NOT EXISTS Grupo (
     ID_Grupo SERIAL PRIMARY KEY,
     Nombre_Grupo VARCHAR(50) NOT NULL
 );
 
--- Create Marca table
+-- Crear tabla Marca
 CREATE TABLE IF NOT EXISTS Marca (
     ID_Marca SERIAL PRIMARY KEY,
     Nombre_Marca VARCHAR(50) NOT NULL,
     ID_Grupo INT REFERENCES Grupo(ID_Grupo)
 );
 
--- Create Modelo table
+-- Crear tabla Modelo
 CREATE TABLE IF NOT EXISTS Modelo (
     ID_Modelo SERIAL PRIMARY KEY,
     Nombre_Modelo VARCHAR(50) NOT NULL,
     ID_Marca INT REFERENCES Marca(ID_Marca)
 );
 
--- Create Aseguradora table
+-- Crear tabla Aseguradora
 CREATE TABLE IF NOT EXISTS Aseguradora (
     ID_Aseguradora SERIAL PRIMARY KEY,
     Nombre_Aseguradora VARCHAR(50) NOT NULL
 );
 
--- Create Poliza table
+-- Crear tabla Poliza
 CREATE TABLE IF NOT EXISTS Poliza (
     ID_Poliza SERIAL PRIMARY KEY,
     ID_Aseguradora INT REFERENCES Aseguradora(ID_Aseguradora),
@@ -40,19 +42,19 @@ CREATE TABLE IF NOT EXISTS Poliza (
     Cobertura TEXT
 );
 
--- Create Divisa table
+-- Crear tabla Divisa
 CREATE TABLE IF NOT EXISTS Divisa (
     ID_Divisa SERIAL PRIMARY KEY,
     Nombre_Divisa VARCHAR(10) NOT NULL
 );
 
--- Create Color table
+-- Crear tabla Color
 CREATE TABLE IF NOT EXISTS Color (
     ID_Color SERIAL PRIMARY KEY,
     Nombre_Color VARCHAR(20) NOT NULL
 );
 
--- Create Coche table
+-- Crear tabla Coche
 CREATE TABLE IF NOT EXISTS Coche (
     ID_Coche SERIAL PRIMARY KEY,
     ID_Modelo INT REFERENCES Modelo(ID_Modelo),
@@ -64,7 +66,7 @@ CREATE TABLE IF NOT EXISTS Coche (
     Fecha_Compra DATE
 );
 
--- Create Revision table
+-- Crear tabla Revision
 CREATE TABLE IF NOT EXISTS Revision (
     ID_Revision SERIAL PRIMARY KEY,
     ID_Coche INT REFERENCES Coche(ID_Coche),
@@ -74,9 +76,9 @@ CREATE TABLE IF NOT EXISTS Revision (
     ID_Divisa INT REFERENCES Divisa(ID_Divisa)
 );
 
+-- Insertar registros de muestra en las tablas
 
--- 3. Insertar datos muestra en las tablas
--- Insertar 5 registros en Grupo
+-- Insertar registros en Grupo
 INSERT INTO Grupo (Nombre_Grupo) VALUES
     ('Grupo A'), 
     ('Grupo B'), 
@@ -84,7 +86,7 @@ INSERT INTO Grupo (Nombre_Grupo) VALUES
     ('Grupo D'), 
     ('Grupo E');
 
--- Insertar 10 registros en Marca
+-- Insertar registros en Marca
 INSERT INTO Marca (Nombre_Marca, ID_Grupo) VALUES
     ('Toyota', 1), 
     ('Honda', 2), 
@@ -97,7 +99,7 @@ INSERT INTO Marca (Nombre_Marca, ID_Grupo) VALUES
     ('Kia', 4), 
     ('Jeep', 5);
 
--- Insertar 10 registros en Modelo
+-- Insertar registros en Modelo
 INSERT INTO Modelo (Nombre_Modelo, ID_Marca) VALUES
     ('Modelo 1', 1),
     ('Modelo 2', 2),
@@ -110,120 +112,42 @@ INSERT INTO Modelo (Nombre_Modelo, ID_Marca) VALUES
     ('Modelo 9', 9),
     ('Modelo 10', 10);
 
--- Insertar 10 registros en Aseguradora
+-- Insertar registros en Aseguradora
 INSERT INTO Aseguradora (Nombre_Aseguradora) VALUES
 	('CoberturaTotal'), 
     ('Seguros XYZ'), 
     ('SeguroFácil'), 
     ('AseguraTodo'),
-    ('ProtegeYa'), 
-    ('SeguroMax'), 
-    ('Confiaseguro'), 
-    ('SeguroClaro'), 
-    ('AseguraYA'), 
-    ('SeguroTOP');
+    ('ProtegeYa'); 
 
--- Insertar 20 registros en la tabla Poliza
+-- Insertar registros en Poliza (Asegúrate de que estos se inserten antes de la tabla Coche)
 INSERT INTO Poliza (ID_Aseguradora, Tipo_Poliza, Fecha_Inicio, Fecha_Expiracion, Cobertura) VALUES  
     (1, 'Responsabilidad Civil', '2021-01-01', '2022-01-01', 'Daño a terceros hasta $10,000'),
     (2, 'Todo Riesgo', '2021-02-01', '2022-02-01', 'Cobertura completa, incluido robo y daño natural'),
     (3, 'Responsabilidad Civil', '2021-03-01', '2022-03-01', 'Daño a terceros hasta $15,000'),
     (4, 'Todo Riesgo', '2021-04-01', '2022-04-01', 'Cobertura completa, incluido robo y daño natural'),
-    (5, 'Responsabilidad Civil', '2021-05-01', '2022-05-01', 'Daño a terceros hasta $5,000'),
-    (6, 'Todo Riesgo', '2021-06-01', '2022-06-01', 'Cobertura completa, incluido robo y daño natural'),
-    (7, 'Responsabilidad Civil', '2021-07-01', '2022-07-01', 'Daño a terceros hasta $20,000'),
-    (8, 'Todo Riesgo', '2021-08-01', '2022-08-01', 'Cobertura completa, incluido robo y daño natural'),
-    (9, 'Responsabilidad Civil', '2021-09-01', '2022-09-01', 'Daño a terceros hasta $8,000'),
-    (10, 'Todo Riesgo', '2021-10-01', '2022-10-01', 'Cobertura completa, incluido robo y daño natural'),
-    (1, 'Responsabilidad Civil', '2021-11-01', '2022-11-01', 'Daño a terceros hasta $12,000'),
-    (2, 'Todo Riesgo', '2021-12-01', '2022-12-01', 'Cobertura completa, incluido robo y daño natural'),
-    (3, 'Responsabilidad Civil', '2022-01-01', '2023-01-01', 'Daño a terceros hasta $18,000'),
-    (4, 'Todo Riesgo', '2022-02-01', '2023-02-01', 'Cobertura completa, incluido robo y daño natural'),
-    (5, 'Responsabilidad Civil', '2022-03-01', '2023-03-01', 'Daño a terceros hasta $6,000'),
-    (6, 'Todo Riesgo', '2022-04-01', '2023-04-01', 'Cobertura completa, incluido robo y daño natural'),
-    (7, 'Responsabilidad Civil', '2022-05-01', '2023-05-01', 'Daño a terceros hasta $22,000'),
-    (8, 'Todo Riesgo', '2022-06-01', '2023-06-01', 'Cobertura completa, incluido robo y daño natural'),
-    (9, 'Responsabilidad Civil', '2022-07-01', '2023-07-01', 'Daño a terceros hasta $10,000'),
-    (10, 'Todo Riesgo', '2022-08-01', '2023-08-01', 'Cobertura completa, incluido robo y daño natural');
+    (5, 'Responsabilidad Civil', '2021-05-01', '2022-05-01', 'Daño a terceros hasta $5,000');
 
+-- Insertar 5 registros en Coche (Asegúrate de que estos se inserten antes de la tabla Revision)
+INSERT INTO Coche (ID_Modelo, ID_Color, Matricula, Kilometros, ID_Aseguradora, Numero_Poliza, Fecha_Compra) VALUES  
+    (1, 1, 'MAT001', 6840, 1, 'POL001', '2015-08-03'),
+    (2, 2, 'MAT002', 10843, 2, 'POL002', '2017-01-20'),
+    (3, 3, 'MAT003', 5640, 3, 'POL003', '2018-05-12'),
+    (4, 4, 'MAT004', 2130, 4, 'POL004', '2019-06-25'),
+    (5, 5, 'MAT005', 9876, 5, 'POL005', '2020-01-15');
 
--- Insertar 7 registros en Divisa
-INSERT INTO Divisa (Nombre_Divisa) VALUES
-    ('EURO'),
-    ('DOLLAR'),
-    ('YEN'),
-    ('POUND'),
-    ('RUPEE'),
-    ('YUAN'),
-    ('PESO');
-
--- Insertar 10 registros en Color
-INSERT INTO Color (Nombre_Color) VALUES
-	('Blanco'), 
-    ('Verde'), 
-    ('Azul'), 
-    ('Rojo'), 
-    ('Negro'),
-    ('Gris'), 
-    ('Marrón'), 
-    ('Amarillo'), 
-    ('Plateado'), 
-    ('Violeta');
-   
--- Insertar registros en la tabla Revision para simular pagos de servicios en diferentes divisas
+-- Insertar registros en la tabla Revision (Asegúrate de que los ID_Coche existen en la tabla Coche)
 INSERT INTO Revision (ID_Coche, Kilometros_Revision, Fecha_Revision, Importe, ID_Divisa) VALUES  
     (1, 7000, '2016-09-15', 200, 1), 
     (2, 11000, '2018-02-20', 250, 2), 
-    (3, 6000, '2019-06-10', 300, 3), 
+    (3, 6000, '2019-06-10', 300, 3),
     (4, 2200, '2020-07-25', 150, 4),
-    (5, 10000, '2021-01-30', 350, 5),
-    (6, 7000, '2021-09-23', 200, 6),
-    (7, 4200, '2022-05-05', 180, 7),
-    (8, 2600, '2022-10-11', 160, 1),
-    (9, 10200, '2023-04-21', 400, 2),
-    (10, 5100, '2023-08-07', 300, 3);
+    (5, 10000, '2021-01-30', 350, 5);
 
--- Insertar 20 registros en Coche
--- Insertar registros en la tabla Coche
-INSERT INTO Coche (ID_Modelo, ID_Color, Matricula, Kilometros, ID_Aseguradora, Numero_Poliza, Fecha_Compra) VALUES  
-	(1, 1, 'MAT001', 6840, 1, 'POL001', '2015-08-03'),
-	(2, 2, 'MAT002', 10843, 2, 'POL002', '2017-01-20'),
-	(3, 3, 'MAT003', 5640, 3, 'POL003', '2018-05-12'),
-	(4, 4, 'MAT004', 2130, 4, 'POL004', '2019-06-25'),
-	(5, 5, 'MAT005', 9876, 5, 'POL005', '2020-01-15');
-
--- Extend to include 20 records for the Coche table
--- Insertar registros en la tabla Coche
-INSERT INTO Coche (ID_Modelo, ID_Color, Matricula, Kilometros, ID_Aseguradora, Numero_Poliza, Fecha_Compra) VALUES  
-	(1, 1, 'MAT001', 6840, 1, 'POL001', '2015-08-03'),
-	(2, 2, 'MAT002', 10843, 2, 'POL002', '2017-01-20'),
-	(3, 3, 'MAT003', 5640, 3, 'POL003', '2018-05-12'),
-	(4, 4, 'MAT004', 2130, 4, 'POL004', '2019-06-25'),
-	(5, 5, 'MAT005', 9876, 5, 'POL005', '2020-01-15'),
-	(6, 6, 'MAT006', 6543, 6, 'POL006', '2020-08-23'),
-	(7, 7, 'MAT007', 4123, 7, 'POL007', '2021-04-05'),
-	(8, 8, 'MAT008', 2567, 8, 'POL008', '2021-09-11'),
-	(9, 9, 'MAT009', 10001, 9, 'POL009', '2022-03-21'),
-	(10, 10, 'MAT010', 5050, 10, 'POL010', '2022-07-02'),
-	(1, 1, 'MAT011', 6000, 1, 'POL011', '2016-02-14'),
-	(2, 2, 'MAT012', 12000, 2, 'POL012', '2018-11-08'),
-	(3, 3, 'MAT013', 7000, 3, 'POL013', '2019-12-01'),
-	(4, 4, 'MAT014', 2500, 4, 'POL014', '2020-05-09'),
-	(5, 5, 'MAT015', 9999, 5, 'POL015', '2021-01-20'),
-	(6, 6, 'MAT016', 6666, 6, 'POL016', '2021-08-30'),
-	(7, 7, 'MAT017', 4200, 7, 'POL017', '2022-04-11'),
-	(8, 8, 'MAT018', 2600, 8, 'POL018', '2022-09-19'),
-	(9, 9, 'MAT019', 10050, 9, 'POL019', '2023-03-25'),
-	(10, 10, 'MAT020', 5100, 10, 'POL020', '2023-07-07');
-
-
--- 4. Consulta SQL Profesional para obtener el listado completo de coches activos
--- Esta consulta se debe ejecutar después de la inserción de datos.
-
--- Establecer el formato para la Fecha_Compra a 'YYYY-MM-DD'
+-- Establecer el formato para las fechas a 'YYYY-MM-DD'
 SET DATESTYLE TO ISO, MDY;
 
--- Iniciar la consulta
+-- Consulta SQL Profesional para obtener el listado completo de coches activos
 SELECT 
     co.ID_Coche AS "ID del Coche", 
     mo.Nombre_Modelo AS "Modelo del Coche", 
@@ -235,8 +159,11 @@ SELECT
     co.Kilometros AS "Kilómetros Recorridos",
     a.Nombre_Aseguradora AS "Aseguradora",
     co.Numero_Poliza AS "Número de Póliza",
-    COALESCE(d.Nombre_Divisa, 'Sin Información') AS "Divisa de Pago del Servicio",
-    COALESCE(r.Importe, 0) AS "Costo de Revisión"
+    p.Tipo_Poliza AS "Tipo de Póliza",
+    TO_CHAR(p.Fecha_Inicio, 'YYYY-MM-DD') AS "Fecha de Inicio de Póliza",
+    TO_CHAR(p.Fecha_Expiracion, 'YYYY-MM-DD') AS "Fecha de Expiración de Póliza",
+    (SELECT Nombre_Divisa FROM Divisa WHERE ID_Divisa = (SELECT ID_Divisa FROM Revision WHERE ID_Coche = co.ID_Coche LIMIT 1)) AS "Divisa de Pago del Servicio",
+    (SELECT Importe FROM Revision WHERE ID_Coche = co.ID_Coche LIMIT 1) AS "Costo de Revisión"
 FROM 
     Coche AS co
 JOIN 
@@ -249,13 +176,9 @@ JOIN
     Color AS col ON co.ID_Color = col.ID_Color
 JOIN 
     Aseguradora AS a ON co.ID_Aseguradora = a.ID_Aseguradora
-LEFT JOIN 
-    Revision AS r ON co.ID_Coche = r.ID_Coche
-LEFT JOIN 
-    Divisa AS d ON r.ID_Divisa = d.ID_Divisa
--- Ordenar los resultados por Marca, Modelo, Divisa y finalmente por Fecha de Compra
+JOIN 
+    Poliza AS p ON a.ID_Aseguradora = p.ID_Aseguradora
 ORDER BY 
     "Marca del Coche", 
     "Modelo del Coche", 
-    "Divisa de Pago del Servicio",
     "Fecha de Compra" ASC;
