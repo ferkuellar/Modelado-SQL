@@ -1,3 +1,30 @@
+# Índice
+
+1. [Resumen del Proyecto de Gestión de Flota de Vehículo](#resumen-del-proyecto-de-gestión-de-flota-de-vehículo)
+   - [Componentes Clave](#componentes-clave)
+2. [Gestión de Flota de Vehículos](#gestión-de-flota-de-vehículos)
+   - [Modelo Entidad-Relación (ER)](#1-modelo-entidad-relación-er)
+   - [Script SQL Autónomo](#2-script-sql-autónomo)
+   - [Consulta SQL](#3-consulta-sql)
+3. [Adaptación del Modelo Entidad-Relación y SQL](#adaptación-del-modelo-entidad-relación-y-sql)
+   - [Entidades y Atributos](#entidades-y-atributos)
+   - [Relaciones](#relaciones)
+4. [Script SQL Adaptado](#script-sql-adaptado)
+   - [Creación del Esquema](#creación-del-esquema)
+   - [Creación de Tablas](#creación-de-tablas)
+5. [Inserción de Datos de Muestra](#inserción-de-datos-de-muestra)
+   - [Insertar Datos en la Tabla Grupo](#insertar-datos-en-la-tabla-grupo)
+   - [Insertar Datos en la Tabla Marca](#insertar-datos-en-la-tabla-marca)
+   - [Insertar Datos en la Tabla Modelo](#insertar-datos-en-la-tabla-modelo)
+   - [Insertar Datos en la Tabla Aseguradora](#insertar-datos-en-la-tabla-aseguradora)
+   - [Insertar Datos en la Tabla Divisa](#insertar-datos-en-la-tabla-divisa)
+   - [Insertar Datos en la Tabla Color](#insertar-datos-en-la-tabla-color)
+6. [Consulta SQL Profesional para Listar Coches Activos](#consulta-sql-profesional-para-listar-coches-activos)
+   - [Detalles de la Consulta](#detalles-de-la-consulta)
+   - [Código SQL](#código-sql)
+7. [Pantalla Final](#pantalla-final)
+
+
 # Resumen del Proyecto de Gestión de Flota de Vehículo.
 
 Este proyecto se centra en la gestión eficiente de la flota de vehículos. Mediante la implementación de un sistema de base de datos en PostgreSQL, se busca tener un control completo sobre diversos aspectos de la flota, como modelos de vehículos, marcas, grupos empresariales y más. Además, se abarcan detalles como el color del coche, matrícula, kilómetros recorridos y datos de la aseguradora. Un aspecto clave es el seguimiento de las revisiones de cada vehículo, incluyendo la fecha, kilómetros al momento y costos. El proyecto incluye un script SQL autónomo para crear y poblar la base de datos, así como archivos CSV de ejemplo para pruebas.
