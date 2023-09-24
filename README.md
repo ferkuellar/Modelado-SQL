@@ -242,28 +242,137 @@ Esta sección se encarga de insertar datos de muestra en las tablas. Los datos d
 ### Insertar Datos en la Tabla Coche
 
 ```sql
--- Insertar 20 registros en la tabla Coche
-INSERT INTO Coche (Modelo, ID_Marca, Color, Matricula, Kilometros, ID_Aseguradora, Numero_Poliza, Fecha_Compra) VALUES  
-('Modelo 1', 1, 'Blanco', 'MAT001', 6840, 1, 'POL001', '2015-08-03'),
-('Modelo 2', 2, 'Verde', 'MAT002', 10843, 2, 'POL002', '2017-01-20'),
-('Modelo 3', 3, 'Azul', 'MAT003', 5640, 3, 'POL003', '2018-05-12'),
-('Modelo 4', 4, 'Rojo', 'MAT004', 2130, 4, 'POL004', '2019-06-25'),
-('Modelo 5', 5, 'Negro', 'MAT005', 9876, 5, 'POL005', '2020-01-15'),
-('Modelo 6', 6, 'Gris', 'MAT006', 6543, 6, 'POL006', '2020-08-23'),
-('Modelo 7', 7, 'Marrón', 'MAT007', 4123, 7, 'POL007', '2021-04-05'),
-('Modelo 8', 8, 'Amarillo', 'MAT008', 2567, 8, 'POL008', '2021-09-11'),
-('Modelo 9', 9, 'Plateado', 'MAT009', 10001, 9, 'POL009', '2022-03-21'),
-('Modelo 10', 10, 'Violeta', 'MAT010', 5050, 10, 'POL010', '2022-07-02'),
-('Modelo 11', 1, 'Blanco', 'MAT011', 6000, 1, 'POL011', '2016-02-14'),
-('Modelo 12', 2, 'Verde', 'MAT012', 12000, 2, 'POL012', '2018-11-08'),
-('Modelo 13', 3, 'Azul', 'MAT013', 7000, 3, 'POL013', '2019-12-01'),
-('Modelo 14', 4, 'Rojo', 'MAT014', 2500, 4, 'POL014', '2020-05-09'),
-('Modelo 15', 5, 'Negro', 'MAT015', 9999, 5, 'POL015', '2021-01-20'),
-('Modelo 16', 6, 'Gris', 'MAT016', 6666, 6, 'POL016', '2021-08-30'),
-('Modelo 17', 7, 'Marrón', 'MAT017', 4200, 7, 'POL017', '2022-04-11'),
-('Modelo 18', 8, 'Amarillo', 'MAT018', 2600, 8, 'POL018', '2022-09-19'),
-('Modelo 19', 9, 'Plateado', 'MAT019', 10050, 9, 'POL019', '2023-03-25'),
-('Modelo 20', 10, 'Violeta', 'MAT020', 5100, 10, 'POL020', '2023-07-07');
+-- Insertar 5 registros en Grupo
+INSERT INTO Grupo (Nombre_Grupo) VALUES
+	('Grupo A'), 
+    ('Grupo B'), 
+    ('Grupo C'), 
+    ('Grupo D'), 
+    ('Grupo E');
+```
+
+```sql
+-- Insertar 10 registros en Marca
+INSERT INTO Marca (Nombre_Marca, ID_Grupo) VALUES
+	('Toyota', 1), 
+    ('Honda', 2), 
+    ('Ford', 3), 
+    ('Chevrolet', 4), 
+    ('Nissan', 5),
+	('Volkswagen', 1), 
+    ('Hyundai', 2), 
+    ('Subaru', 3), 
+    ('Kia', 4), 
+    ('Jeep', 5);
+
+
+```sql
+-- Insertar 10 registros en Modelo
+INSERT INTO Modelo (Nombre_Modelo, ID_Marca) VALUES
+    ('Modelo 1', 1),
+    ('Modelo 2', 2),
+    ('Modelo 3', 3),
+    ('Modelo 4', 4),
+    ('Modelo 5', 5),
+    ('Modelo 6', 6),
+    ('Modelo 7', 7),
+    ('Modelo 8', 8),
+    ('Modelo 9', 9),
+    ('Modelo 10', 10);
+```
+
+```sql
+-- Insertar 10 registros en Aseguradora
+INSERT INTO Aseguradora (Nombre_Aseguradora) VALUES
+	('CoberturaTotal'), 
+    ('Seguros XYZ'), 
+    ('SeguroFácil'), 
+    ('AseguraTodo'),
+	('ProtegeYa'), 
+    ('SeguroMax'), 
+    ('Confiaseguro'), 
+    ('SeguroClaro'), 
+    ('AseguraYA'), 
+    ('SeguroTOP');
+```
+
+```sql
+-- Insertar 7 registros en Divisa
+INSERT INTO Divisa (Nombre_Divisa) VALUES
+    ('EURO'),
+    ('DOLLAR'),
+    ('YEN'),
+    ('POUND'),
+    ('RUPEE'),
+    ('YUAN'),
+    ('PESO');
+```
+
+```sql
+-- Insertar 10 registros en Color
+INSERT INTO Color (Nombre_Color) VALUES
+	('Blanco'), 
+    ('Verde'), 
+    ('Azul'), 
+    ('Rojo'), 
+    ('Negro'),
+	('Gris'), 
+    ('Marrón'), 
+    ('Amarillo'), 
+    ('Plateado'), 
+    ('Violeta');
+```
+
+```sql  
+-- Insertar registros en la tabla Revision para simular pagos de servicios en diferentes divisas
+INSERT INTO Revision (ID_Coche, Kilometros_Revision, Fecha_Revision, Importe, ID_Divisa) VALUES  
+    (1, 7000, '2016-09-15', 200, 1), 
+    (2, 11000, '2018-02-20', 250, 2), 
+    (3, 6000, '2019-06-10', 300, 3), 
+    (4, 2200, '2020-07-25', 150, 4),
+    (5, 10000, '2021-01-30', 350, 5),
+    (6, 7000, '2021-09-23', 200, 6),
+    (7, 4200, '2022-05-05', 180, 7),
+    (8, 2600, '2022-10-11', 160, 1),
+    (9, 10200, '2023-04-21', 400, 2),
+    (10, 5100, '2023-08-07', 300, 3);
+```
+
+```sql
+-- Insertar 20 registros en Coche
+-- Insertar registros en la tabla Coche
+INSERT INTO Coche (ID_Modelo, ID_Color, Matricula, Kilometros, ID_Aseguradora, Numero_Poliza, Fecha_Compra) VALUES  
+	(1, 1, 'MAT001', 6840, 1, 'POL001', '2015-08-03'),
+	(2, 2, 'MAT002', 10843, 2, 'POL002', '2017-01-20'),
+	(3, 3, 'MAT003', 5640, 3, 'POL003', '2018-05-12'),
+	(4, 4, 'MAT004', 2130, 4, 'POL004', '2019-06-25'),
+	(5, 5, 'MAT005', 9876, 5, 'POL005', '2020-01-15');
+```
+
+```sql
+-- Extend to include 20 records for the Coche table
+-- Insertar registros en la tabla Coche
+INSERT INTO Coche (ID_Modelo, ID_Color, Matricula, Kilometros, ID_Aseguradora, Numero_Poliza, Fecha_Compra) VALUES  
+	(1, 1, 'MAT001', 6840, 1, 'POL001', '2015-08-03'),
+	(2, 2, 'MAT002', 10843, 2, 'POL002', '2017-01-20'),
+	(3, 3, 'MAT003', 5640, 3, 'POL003', '2018-05-12'),
+	(4, 4, 'MAT004', 2130, 4, 'POL004', '2019-06-25'),
+	(5, 5, 'MAT005', 9876, 5, 'POL005', '2020-01-15'),
+	(6, 6, 'MAT006', 6543, 6, 'POL006', '2020-08-23'),
+	(7, 7, 'MAT007', 4123, 7, 'POL007', '2021-04-05'),
+	(8, 8, 'MAT008', 2567, 8, 'POL008', '2021-09-11'),
+	(9, 9, 'MAT009', 10001, 9, 'POL009', '2022-03-21'),
+	(10, 10, 'MAT010', 5050, 10, 'POL010', '2022-07-02'),
+	(1, 1, 'MAT011', 6000, 1, 'POL011', '2016-02-14'),
+	(2, 2, 'MAT012', 12000, 2, 'POL012', '2018-11-08'),
+	(3, 3, 'MAT013', 7000, 3, 'POL013', '2019-12-01'),
+	(4, 4, 'MAT014', 2500, 4, 'POL014', '2020-05-09'),
+	(5, 5, 'MAT015', 9999, 5, 'POL015', '2021-01-20'),
+	(6, 6, 'MAT016', 6666, 6, 'POL016', '2021-08-30'),
+	(7, 7, 'MAT017', 4200, 7, 'POL017', '2022-04-11'),
+	(8, 8, 'MAT018', 2600, 8, 'POL018', '2022-09-19'),
+	(9, 9, 'MAT019', 10050, 9, 'POL019', '2023-03-25'),
+	(10, 10, 'MAT020', 5100, 10, 'POL020', '2023-07-07');
 ```
 
 ## Consulta para Listar Coches Activos
