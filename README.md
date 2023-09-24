@@ -108,7 +108,7 @@ Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script 
 6. **Revision - Coche**: Una Revisión se realiza en un Coche, y un Coche puede tener múltiples Revisiones. (1:N)
 7. **Revision - Divisa**: Una Revisión está en una Divisa específica (EURO, DÓLAR, etc.). (1:1)
 
-![Diagrama ER](Modelado_keepcoding-Fleet.png)
+![Diagrama ER](EER_diagram.png)
 
 ## Script SQL Adaptado
 
