@@ -321,6 +321,21 @@ INSERT INTO Divisa (Nombre_Divisa) VALUES
 ('PESO');
 ```
 
+Insertar registros en la tabla Revision para simular pagos de servicios en diferentes divisas
+```sql
+INSERT INTO Revision (ID_Coche, Kilometros_Revision, Fecha_Revision, Importe, ID_Divisa) VALUES  
+    (1, 7000, '2016-09-15', 200, 1), 
+    (2, 11000, '2018-02-20', 250, 2), 
+    (3, 6000, '2019-06-10', 300, 3), 
+    (4, 2200, '2020-07-25', 150, 4),
+    (5, 10000, '2021-01-30', 350, 5),
+    (6, 7000, '2021-09-23', 200, 6),
+    (7, 4200, '2022-05-05', 180, 7),
+    (8, 2600, '2022-10-11', 160, 1),
+    (9, 10200, '2023-04-21', 400, 2),
+    (10, 5100, '2023-08-07', 300, 3);
+```
+
 Insertar Datos en la Tabla Color
 Insertaremos 10 registros de diferentes colores que pueden tener los coches.
 
@@ -337,6 +352,7 @@ INSERT INTO Color (Nombre_Color) VALUES
 ('Amarillo'),
 ('Plateado'),
 ('Violeta');
+```
 ```
 ```
 ```
