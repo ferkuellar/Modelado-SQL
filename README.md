@@ -254,7 +254,7 @@ CREATE TABLE Aseguradora (
 ```sql
 -- Create Poliza table
 CREATE TABLE IF NOT EXISTS Poliza (
-    ID_Poliza SERIAL PRIMARY KEY,
+    ID_Poliza varchar(50) PRIMARY KEY,
     ID_Aseguradora INT REFERENCES Aseguradora(ID_Aseguradora),
     Tipo_Poliza VARCHAR(50) NOT NULL,
     Fecha_Inicio DATE,
@@ -287,14 +287,13 @@ CREATE TABLE Color (
 
 ```sql
 -- Crear la tabla Coche
-CREATE TABLE Coche (
+CREATE TABLE IF NOT EXISTS Coche (
     ID_Coche SERIAL PRIMARY KEY,
     ID_Modelo INT REFERENCES Modelo(ID_Modelo),
     ID_Color INT REFERENCES Color(ID_Color),
-    Matricula VARCHAR(10) NOT NULL,
+    Matricula VARCHAR(50) NOT NULL,
     Kilometros INT,
-    ID_Aseguradora INT REFERENCES Aseguradora(ID_Aseguradora),
-    Numero_Poliza VARCHAR(20),
+    id_poliza varchar(50) references poliza(id_poliza),
     Fecha_Compra DATE
 );
 ```
@@ -385,28 +384,13 @@ INSERT INTO Aseguradora (Nombre_Aseguradora) VALUES
 ```
 
 ```sql
--- Insertar 20 registros en la tabla Poliza
-INSERT INTO Poliza (ID_Aseguradora, Tipo_Poliza, Fecha_Inicio, Fecha_Expiracion, Cobertura) VALUES  
-    (1, 'Responsabilidad Civil', '2021-01-01', '2022-01-01', 'Daño a terceros hasta $10,000'),
-    (2, 'Todo Riesgo', '2021-02-01', '2022-02-01', 'Cobertura completa, incluido robo y daño natural'),
-    (3, 'Responsabilidad Civil', '2021-03-01', '2022-03-01', 'Daño a terceros hasta $15,000'),
-    (4, 'Todo Riesgo', '2021-04-01', '2022-04-01', 'Cobertura completa, incluido robo y daño natural'),
-    (5, 'Responsabilidad Civil', '2021-05-01', '2022-05-01', 'Daño a terceros hasta $5,000'),
-    (6, 'Todo Riesgo', '2021-06-01', '2022-06-01', 'Cobertura completa, incluido robo y daño natural'),
-    (7, 'Responsabilidad Civil', '2021-07-01', '2022-07-01', 'Daño a terceros hasta $20,000'),
-    (8, 'Todo Riesgo', '2021-08-01', '2022-08-01', 'Cobertura completa, incluido robo y daño natural'),
-    (9, 'Responsabilidad Civil', '2021-09-01', '2022-09-01', 'Daño a terceros hasta $8,000'),
-    (10, 'Todo Riesgo', '2021-10-01', '2022-10-01', 'Cobertura completa, incluido robo y daño natural'),
-    (1, 'Responsabilidad Civil', '2021-11-01', '2022-11-01', 'Daño a terceros hasta $12,000'),
-    (2, 'Todo Riesgo', '2021-12-01', '2022-12-01', 'Cobertura completa, incluido robo y daño natural'),
-    (3, 'Responsabilidad Civil', '2022-01-01', '2023-01-01', 'Daño a terceros hasta $18,000'),
-    (4, 'Todo Riesgo', '2022-02-01', '2023-02-01', 'Cobertura completa, incluido robo y daño natural'),
-    (5, 'Responsabilidad Civil', '2022-03-01', '2023-03-01', 'Daño a terceros hasta $6,000'),
-    (6, 'Todo Riesgo', '2022-04-01', '2023-04-01', 'Cobertura completa, incluido robo y daño natural'),
-    (7, 'Responsabilidad Civil', '2022-05-01', '2023-05-01', 'Daño a terceros hasta $22,000'),
-    (8, 'Todo Riesgo', '2022-06-01', '2023-06-01', 'Cobertura completa, incluido robo y daño natural'),
-    (9, 'Responsabilidad Civil', '2022-07-01', '2023-07-01', 'Daño a terceros hasta $10,000'),
-    (10, 'Todo Riesgo', '2022-08-01', '2023-08-01', 'Cobertura completa, incluido robo y daño natural');
+-- Insertar registros en Poliza (Asegúrate de que estos se inserten antes de la tabla Coche)
+INSERT INTO Poliza (id_poliza, ID_Aseguradora, Tipo_Poliza, Fecha_Inicio, Fecha_Expiracion, Cobertura) VALUES  
+    ('POL001', 1, 'Responsabilidad Civil', '2021-01-01', '2022-01-01', 'Daño a terceros hasta $10,000'),
+    ('POL002', 2, 'Todo Riesgo', '2021-02-01', '2022-02-01', 'Cobertura completa, incluido robo y daño natural'),
+    ('POL003', 3, 'Responsabilidad Civil', '2021-03-01', '2022-03-01', 'Daño a terceros hasta $15,000'),
+    ('POL004', 4, 'Todo Riesgo', '2021-04-01', '2022-04-01', 'Cobertura completa, incluido robo y daño natural'),
+    ('POL005', 5, 'Responsabilidad Civil', '2021-05-01', '2022-05-01', 'Daño a terceros hasta $5,000');
 ```
 
 Insertar Datos en la Tabla Divisa
@@ -424,37 +408,27 @@ INSERT INTO Divisa (Nombre_Divisa) VALUES
    ('PESO');
 ```
 
-Insertar registros en la tabla Revision para simular pagos de servicios en diferentes divisas
+Insertar registros en la tabla divisas
 ```sql
-INSERT INTO Revision (ID_Coche, Kilometros_Revision, Fecha_Revision, Importe, ID_Divisa) VALUES  
-    (1, 7000, '2016-09-15', 200, 1), 
-    (2, 11000, '2018-02-20', 250, 2), 
-    (3, 6000, '2019-06-10', 300, 3), 
-    (4, 2200, '2020-07-25', 150, 4),
-    (5, 10000, '2021-01-30', 350, 5),
-    (6, 7000, '2021-09-23', 200, 6),
-    (7, 4200, '2022-05-05', 180, 7),
-    (8, 2600, '2022-10-11', 160, 1),
-    (9, 10200, '2023-04-21', 400, 2),
-    (10, 5100, '2023-08-07', 300, 3);
+-- Insert registros color
+INSERT INTO divisa (nombre_divisa, id_divisa) VALUES
+    ('UDS', 1), 
+    ('EURO', 2);
 ```
 
 Insertar Datos en la Tabla Color
 Insertaremos 10 registros de diferentes colores que pueden tener los coches.
 
 ```sql
--- Insertar 10 registros en Color
-INSERT INTO Color (Nombre_Color) VALUES
-   ('Blanco'),
-   ('Verde'),
-   ('Azul'),
-   ('Rojo'),
-   ('Negro'),
-   ('Gris'),
-   ('Marrón'),
-   ('Amarillo'),
-   ('Plateado'),
-   ('Violeta');
+-- Insert registros color
+INSERT INTO color (nombre_color, id_color) VALUES
+    ('Azul', 1), 
+    ('Negro', 2), 
+    ('Blanco', 3), 
+    ('Amarillo', 4), 
+    ('Verde', 5),
+    ('Cafe', 6), 
+    ('Rojo', 7);
 ```
 
 
@@ -469,6 +443,7 @@ La consulta principal está diseñada para reunir datos de múltiples tablas en 
 ### SQL Code
 
 ```sql
+-- Consulta SQL Profesional para obtener el listado completo de coches activos
 SELECT 
     co.ID_Coche AS "ID del Coche", 
     mo.Nombre_Modelo AS "Modelo del Coche", 
@@ -479,7 +454,7 @@ SELECT
     col.Nombre_Color AS "Color del Coche",
     co.Kilometros AS "Kilómetros Recorridos",
     a.Nombre_Aseguradora AS "Aseguradora",
-    co.Numero_Poliza AS "Número de Póliza",
+    co.id_poliza AS "Número de Póliza",
     p.Tipo_Poliza AS "Tipo de Póliza",
     TO_CHAR(p.Fecha_Inicio, 'YYYY-MM-DD') AS "Fecha de Inicio de Póliza",
     TO_CHAR(p.Fecha_Expiracion, 'YYYY-MM-DD') AS "Fecha de Expiración de Póliza",
@@ -496,9 +471,9 @@ JOIN
 JOIN 
     Color AS col ON co.ID_Color = col.ID_Color
 JOIN 
-    Aseguradora AS a ON co.ID_Aseguradora = a.ID_Aseguradora
+    Poliza AS p ON co.id_poliza = p.id_poliza    
 JOIN 
-    Poliza AS p ON a.ID_Aseguradora = p.ID_Aseguradora
+    Aseguradora AS a ON a.id_aseguradora = p.id_aseguradora
 ORDER BY 
     "Marca del Coche", 
     "Modelo del Coche", 
@@ -528,4 +503,4 @@ Los resultados se ordenan por "Marca del Coche", seguido de "Modelo del Coche" y
 
 ## Pantalla Final
 
-![Diagrama ER](pantalla_final_1.png)
+![Diagrama ER]()
