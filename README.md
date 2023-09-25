@@ -2,7 +2,7 @@
 
 Este proyecto se centra en la gestión eficiente de la flota de vehículos. Mediante la implementación de un sistema de base de datos en PostgreSQL, se busca tener un control completo sobre diversos aspectos de la flota, como modelos de vehículos, marcas, grupos empresariales y más. Además, se abarcan detalles como el color del coche, matrícula, kilómetros recorridos y datos de la aseguradora. Un aspecto clave es el seguimiento de las revisiones de cada vehículo, incluyendo la fecha, kilómetros al momento y costos. El proyecto incluye un script SQL autónomo para crear y poblar la base de datos.
 
-![Diagrama ER]()
+![Diagrama ER](EER_diagram.png)
 
 # Índice
 
@@ -172,9 +172,6 @@ Esta tarea implica la creación de un modelo Entidad-Relación (ER) y un script 
 - **Tipo_Poliza** no puede ser nulo.
 - **Fecha_Inicio** y **Fecha_Expiracion** pueden ser opcionales dependiendo de la lógica del negocio.
 - **Cobertura** es un campo de texto y puede contener información detallada sobre la cobertura de la póliza.
-
-
-![Diagrama ER]()
 
 ## Script SQL Adaptado
 
@@ -503,4 +500,4 @@ Los resultados se ordenan por "Marca del Coche", seguido de "Modelo del Coche" y
 
 ## Pantalla Final
 
-![Diagrama ER]()
+![Diagrama ER](pantalla_final.png)
